@@ -11,6 +11,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListadocomprasComponent } from './components/listadocompras/listadocompras.component';
 import { CalendarioComponent } from './components/calendario/calendario.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ClienteComponent } from './cliente/cliente.component';
+import { Page404Component } from './page404/page404.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,9 @@ import { CalendarioComponent } from './components/calendario/calendario.componen
     NavbarComponent,
     ListadocomprasComponent,
     CalendarioComponent,
+    ClienteComponent,
+    Page404Component,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +34,7 @@ import { CalendarioComponent } from './components/calendario/calendario.componen
     NgbModule,
     NgxSpinnerModule,
     NgxPaginationModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
