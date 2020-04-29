@@ -1,9 +1,18 @@
 <app-navbar></app-navbar>
 <div class="jumbotron">
   <div class="container h-100 d-flex align-items-center">
-    <app-calendario class="mx-auto" (fechaCambiada)="fechaCalendario = $event"></app-calendario>
+    <ngx-spinner
+      bdColor="rgba(51,51,51,0.8)"
+      size="medium"
+      color="#fff"
+      type="ball-scale-multiple"
+    >
+      <p style="font-size: 20px; color: white;">Cargando...</p>
+    </ngx-spinner>
+    <app-calendario
+      class="mx-auto"
+      (fechaCambiada)="fechaCalendario = $event"
+    ></app-calendario>
   </div>
 </div>
 <app-listadocompras [fechaCompra]="fechaCalendario"></app-listadocompras>
-
-

@@ -1,41 +1,49 @@
-<div class="jumbotron">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row" *ngIf="visualizar">
-            <div class="col">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>Cliente</th>
-                    <th>Nombre</th>
-                    <th>¿Compró?</th>
-                    <th>Tarjeta de Credito</th>
-                    <th>Monto</th>
-                    <th>Fecha</th>
-                    <!-- <th></th>
-                    <th></th> -->
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let compra of arrayCompras[0]">
-                    <th>{{ compra.clientId }}</th>
-                    <th>{{ compra.nombre }}</th>
-                    <th>{{ compra.compro == true ? "Si" : "No" }}</th>
-                    <th>{{ compra.tdc }}</th>
-                    <th>{{ compra.monto }}</th>
-                    <th>{{ compra.date | date:'yyyy-MM-dd HH:mm' }}</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-            <div class="mx-auto" style="float:none;
-            text-align:center;">
-              <button class="btn btn-outline-secondary" type="button" (click)="getCompra(fechaCompra)">Ver Compras</button>
-            </div>
-          </div>
+<div class="container">
+  <div class="mx-auto" style="float: none; text-align: center;">
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="getCompra(fechaCompra); funcionCargando()"
+    >
+      Ver Compras
+    </button>
+  </div>
+  <div class="row" *ngIf="visualizar" style="margin-top: 2%;">
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Nombre</th>
+            <th>¿Compró?</th>
+            <th>Tarjeta de Credito</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+            <!-- <th></th>
+                      <th></th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="
+              let compra of arrayCompras[0]
+                | paginate: { itemsPerPage: 10, currentPage: pageActual }
+            "
+          >
+            <th>{{ compra.clientId }}</th>
+            <th>{{ compra.nombre }}</th>
+            <th>{{ compra.compro == true ? "Si" : "No" }}</th>
+            <th>{{ compra.tdc }}</th>
+            <th>{{ compra.monto }}</th>
+            <th>{{ compra.date | date: "yyyy-MM-dd HH:mm" }}</th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="mx-auto" style="float: none; text-align: center;">
+        <pagination-controls
+          (pageChange)="pageActual = $event"
+        ></pagination-controls>
       </div>
     </div>
+  </div>
 </div>
