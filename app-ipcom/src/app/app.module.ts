@@ -6,9 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ListadocomprasComponent } from './listadocompras/listadocompras.component';
-import { CalendarioComponent } from './calendario/calendario.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ListadocomprasComponent } from './components/listadocompras/listadocompras.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
 
 @NgModule({
   declarations: [

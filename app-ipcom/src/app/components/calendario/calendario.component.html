@@ -6,7 +6,7 @@
   <div class="form-group">
     <div class="input-group">
       <input class="form-control" placeholder="yyyy-mm-dd"
-             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+             name="dp" [(ngModel)]="fechaCompra" ngbDatepicker #d="ngbDatepicker" (ngModelChange)="cambiarFecha(fechaCompra)">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="far fa-calendar-alt"></i></button>
       </div>
@@ -15,12 +15,11 @@
 </form>
 </div>
 
-<div class="container h-100 d-flex align-items-center">
+<!-- <div class="container h-100 d-flex align-items-center">
   <div class="mx-auto" style="margin-top: 4%;">
-
-    <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">Enviar</button>
+    <button class="btn btn-outline-secondary" type="button" (click)="cambiarFecha(fechaCompra)">Ver Compras</button>
   </div>
-</div>
+</div> -->
 
 <!-- <hr/>
-<pre>Model: {{ model | json }}</pre> -->
+<pre>Model: {{ fechaCompra | json }}</pre> -->

@@ -17,6 +17,8 @@ export class CompraService {
   }
 
   getCompra(date: string) {
+    console.log(date);
+
     const path = `${this.api}/compras/${date}`;
     return this.http.get<Compra>(path);
   }
