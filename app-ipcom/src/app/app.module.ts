@@ -12,9 +12,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListadocomprasComponent } from './components/listadocompras/listadocompras.component';
 import { CalendarioComponent } from './components/calendario/calendario.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ClienteComponent } from './cliente/cliente.component';
-import { Page404Component } from './page404/page404.component';
-import { HomeComponent } from './home/home.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
+import { Page404Component } from './components/page404/page404.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [

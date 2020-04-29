@@ -9,6 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class AppComponent implements OnInit {
   title = 'app-ipcom';
   fechaCalendario: object;
+  mostrarDatos: boolean;
   constructor(private spinnerService: NgxSpinnerService) {}
 
   ngOnInit() {

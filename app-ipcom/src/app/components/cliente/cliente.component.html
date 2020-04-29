@@ -1,14 +1,21 @@
-<div class="container">
-  <!-- <div class="mx-auto" style="float: none; text-align: center;">
-    <button
-      class="btn btn-outline-secondary"
-      type="button"
-      (click)="getCompra(fechaCompra); funcionCargando()"
+<div class="jumbotron">
+  <div class="container h-100 d-flex align-items-center">
+    <ngx-spinner
+      bdColor="rgba(51,51,51,0.8)"
+      size="medium"
+      color="#fff"
+      type="ball-scale-multiple"
     >
-      Ver Compras
-    </button>
-  </div> -->
-  <div class="row" *ngIf="visualizar" style="margin-top: 2%;">
+      <p style="font-size: 20px; color: white;">Cargando...</p>
+    </ngx-spinner>
+    <div style="margin-top: 4%; float: none; text-align: center;" class="mx-auto">
+      <h2>Compras por cliente</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" style="margin-top: 2%;">
     <div class="col">
       <table class="table table-hover">
         <thead>
@@ -24,11 +31,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-            *ngFor="
-              let compra of arrayCompras[0]
-                | paginate: { itemsPerPage: 9, currentPage: pageActual }
-            " routerLink='/cliente/{{compra.clientId}}' style="cursor: pointer;"
+          <tr *ngFor="
+          let compra of arrayCliente[0]
+            | paginate: { itemsPerPage: 5, currentPage: pageActual }
+        "
           >
             <th>{{ compra.clientId }}</th>
             <th>{{ compra.nombre }}</th>
@@ -40,9 +46,7 @@
         </tbody>
       </table>
       <div class="mx-auto" style="float: none; text-align: center;">
-        <pagination-controls
-          (pageChange)="pageActual = $event"
-        ></pagination-controls>
+        <button class="btn btn-outline-primary" type="button" [routerLink]="['/']" routerLinkActive="router-link-active" >Regresar</button>
       </div>
     </div>
   </div>

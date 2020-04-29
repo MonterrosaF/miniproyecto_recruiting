@@ -8,7 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class HomeComponent implements OnInit {
 
-
+  mostrarDatos: boolean;
   fechaCalendario: object;
   constructor(private spinnerService: NgxSpinnerService) {}
 

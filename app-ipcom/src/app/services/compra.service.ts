@@ -11,15 +11,13 @@ export class CompraService {
 
   constructor(private http: HttpClient) {}
 
-  getAllCompras() {
-    const path = `${this.api}/compras/2019-12-01`;
-    return this.http.get<Compra[]>(path);
+  getCompra(date: string) {
+    const path = `${this.api}/compras/${date}`;
+    return this.http.get<Compra>(path);
   }
 
-  getCompra(date: string) {
-    console.log(date);
-
-    const path = `${this.api}/compras/${date}`;
+  getCompraCliente(date: string) {
+    const path = `${this.api}/clientes/${date}`;
     return this.http.get<Compra>(path);
   }
 }

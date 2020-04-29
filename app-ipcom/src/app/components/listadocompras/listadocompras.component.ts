@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CompraService } from './../../services/compra.service';
 import { formatDate } from '@angular/common';
 
@@ -9,8 +9,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './listadocompras.component.html',
   styleUrls: ['./listadocompras.component.css'],
 })
-export class ListadocomprasComponent implements OnInit {
+export class ListadocomprasComponent implements OnInit, OnChanges {
   @Input() fechaCompra: object;
+  @Input() mostrarDatos: boolean;
   arrayCompras = [];
   visualizar = false;
   constructor(
@@ -20,21 +21,20 @@ export class ListadocomprasComponent implements OnInit {
 
   pageActual = 1;
 
-  getAllCompras() {
-    this.compraService.getAllCompras().subscribe((compras) => {
-      console.log(compras);
-    });
+  ngOnChanges(changes): void {
+    if (changes.fechaCompra.currentValue) {
+      this.getCompra(changes.fechaCompra.currentValue);
+    }
+    this.funcionCargando();
   }
 
   getCompra(date) {
     this.visualizar = false;
     const fechaFinal = date.year + '-' + date.month + '-' + date.day;
     const formattedDate = formatDate(fechaFinal, 'yyyy-MM-dd', 'en-US');
-    console.log(formattedDate);
 
     this.compraService.getCompra(formattedDate).subscribe((compra) => {
       this.arrayCompras.push(compra);
-      console.log(this.arrayCompras[0]);
     });
     this.visualizar = true;
     this.arrayCompras = [];
