@@ -46,7 +46,8 @@
         </tbody>
       </table>
       <div class="mx-auto" style="float: none; text-align: center;">
-        <button class="btn btn-outline-primary" type="button" [routerLink]="['/']" routerLinkActive="router-link-active" >Regresar</button>
+        <!-- <button class="btn btn-outline-primary" type="button" [routerLink]="['/']" routerLinkActive="router-link-active" >Regresar</button> -->
+        <button class="btn btn-outline-primary" type="button" (click)="backClicked()">Regresar</button>
       </div>
     </div>
   </div>

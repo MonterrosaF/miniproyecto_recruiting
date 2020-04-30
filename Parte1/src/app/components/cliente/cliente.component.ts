@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CompraService } from './../../services/compra.service';
-import { formatDate } from '@angular/common';
+import { formatDate, Location } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -15,7 +15,8 @@ export class ClienteComponent implements OnInit {
   constructor(
     private compraService: CompraService,
     private spinnerService: NgxSpinnerService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private locationService: Location
   ) {}
 
   pageActual = 1;
@@ -25,6 +26,10 @@ export class ClienteComponent implements OnInit {
       this.arrayCliente.push(compra);
     });
     this.arrayCliente = [];
+  }
+
+  backClicked() {
+    this.locationService.back();
   }
 
   ngOnInit(): void {
