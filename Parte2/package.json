@@ -1,5 +1,5 @@
 {
-  "name": "app-ipcom_parte2",
+  "name": "Parte2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@loopback/cli": "^2.5.0",
-    "loopback-cli": "^5.1.0"
+    "cross-blob": "^1.2.2",
+    "csv-writer": "^1.6.0",
+    "csvtojson": "^2.0.10",
+    "fast-csv": "^4.1.3",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "request": "^2.88.2"
   }
 }
